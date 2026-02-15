@@ -16,6 +16,9 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
+      - name: Install PowerShell Preview
+        uses: bjompen/Install-PSPreview@v1
+
       - name: Build and Test
-        shell: pwsh
+        shell: pwsh-preview {0}
         run: ./build.ps1 -Clean -Test
