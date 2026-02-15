@@ -22,5 +22,5 @@ jobs:
           Version: 7.5.0
 
       - name: Build and Test
-        shell: pwsh-preview {0}
+        shell: pwsh
         run: ./build.ps1 -Clean -Test
