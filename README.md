@@ -6,6 +6,8 @@ This is the repository for the Microsoft Desired State Configuration (DSC) schem
 ## Commands implemented
 
 - [New-DscResourceManifestFromClass][00]
+- [Convert-MofToDsc][01]
 
 <!-- Link reference -->
 [00]: docs/Help/New-DscResourceManifestFromClass.md
+[01]: docs/Help/Convert-MofToDsc.md

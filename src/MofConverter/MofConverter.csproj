@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>DscSchemaBuilder</RootNamespace>
+    <AssemblyName>DscSchemaBuilder.MofConverter</AssemblyName>
+    <!-- Publish output to the module's lib folder -->
+    <PublishDir>$(MSBuildProjectDirectory)/../lib</PublishDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kingsland.MofParser" Version="9.0.1" />
+    <PackageReference Include="YamlDotNet" Version="16.*" />
+  </ItemGroup>
+
+</Project>

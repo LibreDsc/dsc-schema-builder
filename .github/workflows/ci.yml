@@ -5,16 +5,22 @@ on:
     branches: [main]
 
 jobs:
-  test:
-    name: Run Pester Tests
+  build-and-test:
+    name: Build & test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Pester Tests
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Install PowerShell
+        uses: PSModule/install-powershell@v1
+        with:
+          Version: 7.5.0
+
+      - name: Build and Test
         shell: pwsh
-        run: |
-          $result = Invoke-Pester -Output Detailed -PassThru
-          if ($result.FailedCount -gt 0) {
-            throw "$($result.FailedCount) test(s) failed."
-          }
+        run: ./build.ps1 -Clean -Test
