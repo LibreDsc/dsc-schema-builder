@@ -5,7 +5,7 @@
     Author            = 'LibreDsc'
     Copyright         = 'Copyright (c) 2026 LibreDsc. All rights reserved.'
     Description       = 'Generate Microsoft Desired State Configuration (DSC) resource manifests and JSON Schema from PowerShell DSC resources'
-    PowerShellVersion = '7.4'
+    PowerShellVersion = '7.5'
     NestedModules     = @('lib\DscSchemaBuilder.MofConverter.dll')
     FunctionsToExport = @('New-DscResourceManifestFromClass', 'Convert-MofToDsc')
     CmdletsToExport   = @()
