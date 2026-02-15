@@ -16,8 +16,10 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
-      - name: Install PowerShell Preview
-        uses: bjompen/Install-PSPreview@v1
+      - name: Install PowerShell
+        uses: PSModule/install-powershell@v1
+        with:
+          Version: 7.5.0
 
       - name: Build and Test
         shell: pwsh-preview {0}
