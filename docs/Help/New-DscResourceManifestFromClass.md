@@ -27,21 +27,20 @@ New-DscResourceManifestFromClass [-Path] <string> [-ResourceTypePrefix <string>]
 
 ## DESCRIPTION
 
-The function New-DscResourceManifestFromClass generates a Microsoft DSC resource manifest by analyzing PowerShell class definitions 
-decorated with the [DscResource()] attribute.
+The function `New-DscResourceManifestFromClass` generates a Microsoft DSC resource manifest by analyzing PowerShell class definitions 
+decorated with the `[DscResource()]` attribute.
 It uses the Abstract Syntax Tree (AST) to inspect the structure of the classes and 
 their members, extracting necessary information to create a manifest that describes the DSC resources.
 
-New-DscResourceManifestFromClass accepts a path to a .ps1 or .psm1 file containing one or more DSC resource classes.
-
-It then parses the file to identify classes that are decorated with [DscResource()].
+`New-DscResourceManifestFromClass` accepts a path to a `.ps1` or `.psm1` file containing one or more `[DscResource()]` decorated PowerShell classes.
+It then parses the file to identify classes that are decorated with `[DscResource()]`.
 For each identified class, the
 function inspects its properties and methods to determine the characteristics of the DSC resource,
 such as which properties are keys, mandatory, or have specific validation attributes.
 
 It also checks for the presence of methods like Get, Set, Test, Delete, and Export to determine the operations supported by the resource.
 
-When -GenerateResourceScript is specified a resource.ps1 wrapper
+When `-GenerateResourceScript` is specified a `resource.ps1` wrapper
 file is also written.
  This script bridges the class-based DSC resource model
 to the model DSC expects, allowing the manifest to point to it for execution.
@@ -82,8 +81,7 @@ HelpMessage: ''
 ### -Description
 
 Optional description applied to every resource entry.
- When omitted
-a sensible default is generated from the class name.
+ When omitted a sensible default is generated from the class name.
 
 ```yaml
 Type: System.String
@@ -105,9 +103,8 @@ HelpMessage: ''
 ### -Executable
 
 Executable path to embed in the manifest operation entries.
- Only
-used when -GenerateResourceScript is NOT specified (placeholder
-mode).
+ 
+Only used when `-GenerateResourceScript` is NOT specified (placeholder mode).
  Defaults to "<executable>".
 
 ```yaml
@@ -173,8 +170,7 @@ HelpMessage: ''
 
 ### -Path
 
-Path to a `.ps1` or `.psm1` file containing one or more [DscResource()]
-classes.
+Path to a `.ps1` or `.psm1` file containing one or more `[DscResource()]` decorated PowerShell classes.
 
 ```yaml
 Type: System.String
@@ -220,8 +216,7 @@ HelpMessage: ''
 ### -Version
 
 Semantic version string for all generated resources.
-Defaults to
-"0.1.0".
+Defaults to "0.1.0".
 
 ```yaml
 Type: System.String
