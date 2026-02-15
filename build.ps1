@@ -219,8 +219,8 @@ if ($Test) {
     Import-Module Pester -MinimumVersion 5.0.0 -Force
 
     # Import the built module so tests run against the packaged output
-    Write-Verbose -Verbose -Message "Importing module from: $ModuleOutputPath/$ModuleName.psd1"
-    Import-Module "$ModuleOutputPath/$ModuleName.psd1" -Force
+    # Write-Verbose -Verbose -Message "Importing module from: $ModuleOutputPath/$ModuleName.psd1"
+    # Import-Module "$ModuleOutputPath/$ModuleName.psd1" -Force
 
     # Build Pester configuration
     $pesterConfig = [PesterConfiguration]::Default
