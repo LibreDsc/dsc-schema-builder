@@ -2,10 +2,10 @@ function Convert-MofToDsc
 {
     <#
     .SYNOPSIS
-        Converts a compiled MOF file into a Microsoft DSC v3 configuration document.
+        Converts a compiled MOF file into a Microsoft DSC configuration document.
 
     .DESCRIPTION
-        Parses a compiled MOF file and produces a DSC v3 configuration document in
+        Parses a compiled MOF file and produces a Microsoft DSC configuration document in
         JSON (default) or YAML format. MOF metadata properties are excluded, DependsOn
         references are converted to DSC resourceId() syntax, and resource types are
         derived from the MOF ModuleName and ResourceType.
@@ -25,17 +25,20 @@ function Convert-MofToDsc
     .EXAMPLE
         Convert-MofToDsc -Path .\localhost.mof
 
-        Converts the MOF file to a DSC v3 JSON configuration document.
+        Converts the MOF file to a Microsoft DSC JSON configuration document.
 
     .EXAMPLE
         Convert-MofToDsc -Path .\localhost.mof -ToYaml
 
-        Converts the MOF file to a DSC v3 YAML configuration document.
+        Converts the MOF file to a Microsoft DSC YAML configuration document.
 
     .EXAMPLE
         Get-Item .\localhost.mof | Convert-MofToDsc -ResourceTypePrefix 'Contoso.DSC'
 
         Converts the MOF file using a custom resource type prefix.
+
+    .NOTES
+        Authors: LibreDsc
     #>
     [CmdletBinding()]
     [OutputType([string])]
