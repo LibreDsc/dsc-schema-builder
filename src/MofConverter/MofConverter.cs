@@ -26,6 +26,12 @@ public static class MofConverter
         "ConfigurationName"
     };
 
+    // MOF class names that represent document metadata rather than DSC resources
+    private static readonly HashSet<string> SkippedTypeNames = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "OMI_ConfigurationDocument"
+    };
+
     // Regex to parse MOF ResourceID: [ResourceType]InstanceName
     private static readonly Regex ResourceIdPattern = new(@"^\[(.+?)\](.+)$", RegexOptions.Compiled);
 
@@ -60,6 +66,11 @@ public static class MofConverter
 
         foreach (var instance in module.Instances)
         {
+            if (SkippedTypeNames.Contains(instance.TypeName))
+            {
+                continue;
+            }
+
             var (resourceId, dscType, name) = ResolveResourceIdentity(instance, resourceTypePrefix);
             if (resourceId is not null)
             {
@@ -72,6 +83,11 @@ public static class MofConverter
 
         foreach (var instance in module.Instances)
         {
+            if (SkippedTypeNames.Contains(instance.TypeName))
+            {
+                continue;
+            }
+
             var resource = ConvertInstanceToResource(instance, resourceLookup, resourceTypePrefix);
             if (resource is not null)
             {
